@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="transferServer" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>net.parttimepolymath.model.Account</class>
+		<class>net.parttimepolymath.model.Client</class>
+		<class>net.parttimepolymath.model.Transaction</class>
+		<class>net.parttimepolymath.model.TransactionPK</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+    
+        <properties>
+    
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+
+            <property name="eclipselink.persistence-context.reference-mode" value="WEAK"/>
+
+            <property name="eclipselink.jdbc.cache-statements" value="true"/>
+            <property name="eclipselink.cache.size.default" value="128"/>
+            
+            <property name="eclipselink.persistence-context.close-on-commit" value="true"/>
+            <property name="eclipselink.persistence-context.flush-mode" value="commit"/>
+            <property name="eclipselink.persistence-context.persist-on-commit" value="false"/>
+
+            <property name="eclipselink.jdbc.batch-writing" value="Buffered"/>
+            
+            <property name="eclipselink.weaving" value="static"/>
+            
+            <!--  to enable logging, comment out the first line and uncomment 2nd and 3rd -->
+            <property name="eclipselink.logging.level" value="off"/>
+            <!-- <property name="eclipselink.logging.level.sql" value="FINE"/> -->
+            <!-- <property name="eclipselink.logging.parameters" value="true"/> -->
+            <property name="eclipselink.jdbc.read-connections.shared" value="true"/>
+            <property name="eclipselink.jdbc.read-connections.max" value="8"/>
+            <property name="eclipselink.jdbc.write-connections.min" value="2"/>
+            <property name="eclipselink.jdbc.write-connections.max" value="8"/>
+        </properties>
+
+    </persistence-unit>
+    
+</persistence>
